@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>police</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+            <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+
+</head>
+<body>
+<div th:replace="~{main::topbar}"></div>
+<div class="text-center">
+<form class="container" action="/breakrule/add" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">添加罚单</h1>
+
+    <p style="color:red" th:text="${msg1}" th:if="${ not #strings.isEmpty(msg1)}"></p>
+    <input type="text" name="carNumber" class="form-control" placeholder="车牌" required="" autofocus="">
+
+    <input type="text" name="carInformation" class="form-control" placeholder="违章信息" required="">
+    <input type="text" name="penalty" class="form-control" placeholder="罚款" required="">
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">添加</button>
+</form>
+</div>
+</body>
+</html>

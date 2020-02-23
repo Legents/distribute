@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.carInformationMapper">
+    <select id="queryAll" resultType="com.example.demo.entity.carInformation">
+        select * from car_information
+    </select>
+    <select id="queryByAccount" resultType="com.example.demo.entity.carInformation">
+        select * from car_information where account=#{account}
+    </select>
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
+            parameterType="com.example.demo.entity.carInformation">
+        insert into car_information(account,car_number,user_name,phone)
+        values (#{account},#{carNumber},#{userName},#{phone})
+    </insert>
+
+</mapper>
